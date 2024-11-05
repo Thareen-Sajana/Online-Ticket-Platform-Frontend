@@ -1,0 +1,17 @@
+.banner-topic{
+    font-size: 45px;
+    width: 90%;
+    font-weight: 700;
+}
+
+.banner-description {
+    font-size: 18px;
+    width: 80%;
+    color: rgb(137, 137, 137);
+}
+
+.buy-now-btn {
+    background-color: #6610f2;
+    color: white;
+    text-decoration: none;
+}
