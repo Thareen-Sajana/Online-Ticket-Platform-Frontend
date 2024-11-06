@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterLink } from '@angular/router';
 import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule, DropdownModule, CommonModule],
+  imports: [FormsModule, DropdownModule, CommonModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
