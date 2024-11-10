@@ -1,12 +1,25 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { HomePageComponent } from './pages/customerPage/home-page/home-page.component';
+import { AboutUsPageComponent } from './pages/customerPage/about-us-page/about-us-page.component';
+import { LoginPageComponent } from './pages/customerPage/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/customerPage/register-page/register-page.component';
+import {BuyNowPageComponent} from './pages/customerPage/buy-now-page/buy-now-page.component';
+import {BuyTicketDitailsPageComponent} from './pages/customerPage/buy-ticket-ditails-page/buy-ticket-ditails-page.component';
+import {TicketHistoryPageComponent} from './pages/customerPage/ticket-history-page/ticket-history-page.component';
+import {CustomerPageComponent} from './pages/customerPage/customer-page/customer-page.component';
 
 export const routes: Routes = [
-    {"path": "home", component: HomePageComponent},
-    {"path": "about-us", component: AboutUsPageComponent},
     {"path": "login", component: LoginPageComponent},
-    {"path": "register", component: RegisterPageComponent}
+    {"path": "register", component: RegisterPageComponent},
+    {"path": 'ticket-details', component: BuyTicketDitailsPageComponent},
+
+    {"path": 'customer', component: CustomerPageComponent,
+      children: [
+        {"path": 'home', component: HomePageComponent},
+        {"path": 'ticket-history', component: TicketHistoryPageComponent},
+        {"path": 'buy-now', component: BuyNowPageComponent},
+        {"path": 'about-us', component: AboutUsPageComponent},
+        {"path": 'ticket-history-page', component: TicketHistoryPageComponent},
+        {"path": '', redirectTo: 'home', pathMatch: 'full'}
+      ]}
 ];

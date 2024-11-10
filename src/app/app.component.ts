@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.component';
+import { HeaderComponent } from './components/customerComponents/header/header.component';
+import { HomePageComponent } from './pages/customerPage/home-page/home-page.component';
+import { FooterComponent } from './components/customerComponents/footer/footer.component';
+import { AboutUsPageComponent } from './pages/customerPage/about-us-page/about-us-page.component';
 import { CommonModule } from '@angular/common';
 
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BannerBodyComponent } from '../../components/banner-body/banner-body.component';
-import { HomePageDescriptionComponent } from '../../components/home-page-description/home-page-description.component';
+import { BannerBodyComponent } from '../../../components/customerComponents/banner-body/banner-body.component';
+import { HomePageDescriptionComponent } from '../../../components/customerComponents/home-page-description/home-page-description.component';
 
 @Component({
   selector: 'app-home-page',
