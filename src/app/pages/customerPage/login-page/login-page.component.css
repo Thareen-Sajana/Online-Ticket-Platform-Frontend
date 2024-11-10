@@ -1,0 +1,37 @@
+/* .custom-input-focus .form-control:focus {
+    border-color: #6610f2 !important;
+    box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.25) !important;
+}
+
+.custom-checkbox .form-check-input:checked {
+    background-color: #6610f2 !important;
+    border-color: #6610f2 !important;
+}
+
+.custom-checkbox .form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.25) !important;
+}
+  
+   */
+
+
+.custom-form-container {
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px;        /* Rounded corners */
+    padding: 30px;             /* Padding around the form */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Input Field Focus Effect */
+.custom-input-focus .form-control:focus {
+    border-color: #6610f2 !important;
+    box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.25) !important;
+}
+
+/* Checkbox Customization */
+.custom-checkbox .form-check-input:checked {
+    background-color: #6610f2 !important;
+    border-color: #6610f2 !important;
+}
+
+
