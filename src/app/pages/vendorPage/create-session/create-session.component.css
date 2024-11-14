@@ -1,0 +1,100 @@
+
+.card {
+  border: none;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 20px rgba(102, 16, 242, 0.2);
+}
+
+.card .media-body h5 {
+  color: #6610f2;
+  font-weight: bold;
+}
+
+.card .media-body p {
+  color: #6c757d;
+}
+
+.card .avatar-title {
+  background-color: #6610f2;
+  color: white;
+}
+
+.accordion .collapse.show {
+  border-top: 3px solid #6610f2;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #495057;
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-control:focus {
+  border-color: #6610f2;
+  box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.25);
+}
+
+.btn-purple {
+  background-color: #6610f2;
+  border-color: #6610f2;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #520dc2;
+  border-color: #520dc2;
+}
+
+
+
+
+/* Style for custom file upload input */
+.custom-file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 2px dashed #6610f2;
+  border-radius: 8px;
+  padding: 5px;
+  color: #6610f2;
+  cursor: pointer;
+  background-color: #f3f0ff;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #e8e0ff;
+}
+
+.custom-file-upload input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-file-upload .upload-text {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #6610f2;
+}
+
+.custom-file-upload .upload-text i {
+  margin-right: 8px;
+}
+
+
+.custom-file-input:focus + .custom-file-label {
+  border-color: #6610f2;
+  box-shadow: 0 0 5px rgba(102, 16, 242, 0.5);
+}

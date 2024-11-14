@@ -1,0 +1,119 @@
+<div class="card shadow-lg mb-4 mt-5 mx-3">
+
+  <div>
+    <div class="p-4 media-body ">
+      <h5 class="font-size-16 mb-1">Ticket <span style="color: black">Selling Session</span></h5>
+      <p class="text-muted text-truncate mb-0">Fill in the details below to start selling tickets</p>
+    </div>
+
+    <div class="p-4 border-top">
+      <form>
+
+        <div class="form-group mb-3">
+          <label for="eventname">Event Name</label>
+          <input id="eventname" name="eventname" type="text" class="form-control">
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="ticketprice">Ticket Price (LKR)</label>
+              <input id="ticketprice" name="ticketprice" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="totalTicket">Total Tickets</label>
+              <input id="totalTicket" name="totalTicket" type="number" class="form-control">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="ticketPoolCapacity">Ticket Pool Capacity</label>
+              <input id="ticketPoolCapacity" name="ticketprice" type="number" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="ticketReleaseRate">Ticket Release Rate</label>
+              <input id="ticketReleaseRate" name="ticketReleaseRate" type="number" class="form-control">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="customerRetrievalRate">Customer Retrieval Rate</label>
+              <input id="customerRetrievalRate" name="customerRetrievalRate" type="number" class="form-control">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="vipDiscount">VIP Discount (%)</label>
+              <input id="vipDiscount" name="vipDiscount" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">Category</label>
+              <select class="form-control">
+                <option>Select</option>
+                <option value="concert">Concert</option>
+                <option value="conference">Conference</option>
+                <option value="sports">Sports</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">Ticket Type</label>
+              <select class="form-control">
+                <option>Select</option>
+                <option value="vip">VIP</option>
+                <option value="regular">Regular</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="eventdate">Event Date</label>
+              <input id="eventdate" name="eventdate" type="date" class="form-control">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label for="selectPhoto">Select Photo</label>
+              <div class="custom-file-upload">
+                <input
+                  id="selectPhoto"
+                  name="selectPhoto"
+                  type="file"
+                  class="custom-file-input form-control"
+                  (change)="onFileSelected($event)"
+                />
+                <span class="upload-text" for="selectPhoto">{{ selectedFileName || "Choose file..." }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mb-0">
+          <label for="eventdesc">Event Description</label>
+          <textarea class="form-control" id="eventdesc" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-purple btn-block mt-4" >Start Selling</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

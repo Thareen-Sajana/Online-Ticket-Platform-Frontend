@@ -1,0 +1,13 @@
+.logout-btn{
+  background-color: black;
+  color: white;
+  font-weight: 400;
+}
+
+.topic{
+  font-weight: 600;
+  text-decoration: none;
+  color: rgb(20, 20, 20);
+  font-size: 5;
+}
+
