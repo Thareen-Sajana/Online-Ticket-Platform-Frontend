@@ -7,31 +7,93 @@
     </div>
 
     <div class="p-4 border-top">
-      <form>
+      <form [formGroup]="vendorForm">
 
         <div class="form-group mb-3">
           <label for="eventname">Event Name</label>
-          <input id="eventname" name="eventname" type="text" class="form-control">
+          <input formControlName="eventName" id="eventname" name="eventname" type="text" class="form-control">
+
+          <div class="pb-2" *ngIf="this.vendorForm.controls['eventName'].errors &&
+          (this.vendorForm.controls['eventName'].errors?.['minlength'] &&
+          vendorForm.controls['eventName'].touched)" style="font-size: 12px; color: #cc0a0a">
+            *Event Name must be at least 3 characters
+          </div>
+
+          <div class="pb-2" *ngIf="this.vendorForm.controls['eventName'].errors &&
+          (this.vendorForm.controls['eventName'].errors?.['maxlength'] &&
+          vendorForm.controls['eventName'].touched)" style="font-size: 12px; color: #cc0a0a">
+            *Event Name could have only 50 characters
+          </div>
+
+          <div class="pb-2" *ngIf="this.vendorForm.controls['eventName'].errors &&
+          (this.vendorForm.controls['eventName'].errors?.['required'] &&
+          vendorForm.controls['eventName'].touched)" style="font-size: 12px; color: #cc0a0a">
+            *Enter Event Name
+          </div>
+
         </div>
 
+
         <div class="row mb-3">
+
           <div class="col-lg-4">
             <div class="form-group">
               <label for="ticketprice">Ticket Price (LKR)</label>
-              <input id="ticketprice" name="ticketprice" type="text" class="form-control">
+              <input formControlName="ticketPrice" id="ticketprice" name="ticketprice" type="number" class="form-control">
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketPrice'].errors &&
+          (this.vendorForm.controls['ticketPrice'].errors?.['min'] &&
+          vendorForm.controls['ticketPrice'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter positive value
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketPrice'].errors &&
+          (this.vendorForm.controls['ticketPrice'].errors?.['required'] &&
+          vendorForm.controls['ticketPrice'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Enter Ticket Price
+            </div>
+
           </div>
+
           <div class="col-lg-4">
             <div class="form-group">
               <label for="totalTicket">Total Tickets</label>
-              <input id="totalTicket" name="totalTicket" type="number" class="form-control">
+              <input formControlName="totalTicket" id="totalTicket" name="totalTicket" type="number" class="form-control">
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['totalTicket'].errors &&
+          (this.vendorForm.controls['totalTicket'].errors?.['required'] &&
+          vendorForm.controls['totalTicket'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Enter total ticket count
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['totalTicket'].errors &&
+          (this.vendorForm.controls['totalTicket'].errors?.['min'] &&
+          vendorForm.controls['totalTicket'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter positive value
+            </div>
+
           </div>
+
           <div class="col-lg-4">
             <div class="form-group">
               <label for="ticketPoolCapacity">Ticket Pool Capacity</label>
-              <input id="ticketPoolCapacity" name="ticketprice" type="number" class="form-control">
+              <input formControlName="ticketPoolCapacity" id="ticketPoolCapacity" name="ticketprice" type="number" class="form-control">
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketPoolCapacity'].errors &&
+          (this.vendorForm.controls['ticketPoolCapacity'].errors?.['required'] &&
+          vendorForm.controls['ticketPoolCapacity'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Enter total capacity here
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketPoolCapacity'].errors &&
+          (this.vendorForm.controls['ticketPoolCapacity'].errors?.['min'] &&
+          vendorForm.controls['ticketPoolCapacity'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter positive value
+            </div>
+
           </div>
         </div>
 
@@ -39,20 +101,79 @@
           <div class="col-lg-4">
             <div class="form-group">
               <label for="ticketReleaseRate">Ticket Release Rate</label>
-              <input id="ticketReleaseRate" name="ticketReleaseRate" type="number" class="form-control">
+              <input formControlName="ticketReleaseRate" id="ticketReleaseRate" name="ticketReleaseRate" type="number" class="form-control">
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketReleaseRate'].errors &&
+          (this.vendorForm.controls['ticketReleaseRate'].errors?.['required'] &&
+          vendorForm.controls['ticketReleaseRate'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Enter release rate
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketReleaseRate'].errors &&
+          (this.vendorForm.controls['ticketReleaseRate'].errors?.['min'] &&
+          vendorForm.controls['ticketReleaseRate'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter positive value
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketReleaseRate'].errors &&
+          (this.vendorForm.controls['ticketReleaseRate'].errors?.['max'] &&
+          vendorForm.controls['ticketReleaseRate'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter number below 5
+            </div>
+
           </div>
+
           <div class="col-lg-4">
             <div class="form-group">
               <label for="customerRetrievalRate">Customer Retrieval Rate</label>
-              <input id="customerRetrievalRate" name="customerRetrievalRate" type="number" class="form-control">
+              <input formControlName="customerReleaseRate" id="customerRetrievalRate" name="customerRetrievalRate" type="number" class="form-control">
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['customerReleaseRate'].errors &&
+          (this.vendorForm.controls['customerReleaseRate'].errors?.['required'] &&
+          vendorForm.controls['customerReleaseRate'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Enter retrieval rate
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['customerReleaseRate'].errors &&
+          (this.vendorForm.controls['customerReleaseRate'].errors?.['min'] &&
+          vendorForm.controls['customerReleaseRate'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter positive value
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['customerReleaseRate'].errors &&
+          (this.vendorForm.controls['customerReleaseRate'].errors?.['max'] &&
+          vendorForm.controls['customerReleaseRate'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter number below 5
+            </div>
+
           </div>
+
           <div class="col-lg-4">
             <div class="form-group">
               <label for="vipDiscount">VIP Discount (%)</label>
-              <input id="vipDiscount" name="vipDiscount" type="text" class="form-control">
+              <input formControlName="vipDiscount" id="vipDiscount" name="vipDiscount" type="number" class="form-control">
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['vipDiscount'].errors &&
+          (this.vendorForm.controls['vipDiscount'].errors?.['required'] &&
+          vendorForm.controls['vipDiscount'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Enter percentage here
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['vipDiscount'].errors &&
+          (this.vendorForm.controls['vipDiscount'].errors?.['min'] &&
+          vendorForm.controls['vipDiscount'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter positive value
+            </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['vipDiscount'].errors &&
+          (this.vendorForm.controls['vipDiscount'].errors?.['max'] &&
+          vendorForm.controls['vipDiscount'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Please enter number below 100
+            </div>
+
           </div>
         </div>
 
@@ -60,23 +181,39 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label">Category</label>
-              <select class="form-control">
-                <option>Select</option>
+              <select formControlName="category" class="form-control">
+                <option value="">Select</option>
                 <option value="concert">Concert</option>
                 <option value="conference">Conference</option>
                 <option value="sports">Sports</option>
+                <option value="other">Other</option>
               </select>
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['category'].errors &&
+          (this.vendorForm.controls['category'].errors?.['required'] &&
+          vendorForm.controls['category'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Select category
+            </div>
           </div>
+
+
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label">Ticket Type</label>
-              <select class="form-control">
-                <option>Select</option>
+              <select formControlName="ticketType" class="form-control">
+                <option value="">Select</option>
                 <option value="vip">VIP</option>
                 <option value="regular">Regular</option>
               </select>
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['ticketType'].errors &&
+          (this.vendorForm.controls['ticketType'].errors?.['required'] &&
+          vendorForm.controls['ticketType'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Select ticket type
+            </div>
+
           </div>
         </div>
 
@@ -84,32 +221,71 @@
           <div class="col-lg-4">
             <div class="form-group">
               <label for="eventdate">Event Date</label>
-              <input id="eventdate" name="eventdate" type="date" class="form-control">
+              <input formControlName="eventDate" id="eventdate" name="eventdate" type="date" class="form-control">
             </div>
+
+            <div class="pb-2" *ngIf="this.vendorForm.controls['eventDate'].errors &&
+          (this.vendorForm.controls['eventDate'].errors?.['required'] &&
+          vendorForm.controls['eventDate'].touched)" style="font-size: 12px; color: #cc0a0a">
+              *Select date
+            </div>
+
           </div>
+
           <div class="col-lg-4">
             <div class="form-group">
               <label for="selectPhoto">Select Photo</label>
               <div class="custom-file-upload">
                 <input
+                  formControlName="ticketImage"
                   id="selectPhoto"
                   name="selectPhoto"
                   type="file"
                   class="custom-file-input form-control"
                   (change)="onFileSelected($event)"
                 />
-                <span class="upload-text" for="selectPhoto">{{ selectedFileName || "Choose file..." }}</span>
+                <span class="upload-text" for="selectPhoto">{{ selectedFileName() || "Choose file..." }}</span>
               </div>
+
+              <div class="pb-2" *ngIf="this.vendorForm.controls['ticketImage'].errors &&
+          (this.vendorForm.controls['ticketImage'].errors?.['required'] &&
+          vendorForm.controls['ticketImage'].touched)" style="font-size: 12px; color: #cc0a0a">
+                *Select image
+              </div>
+
+              <div class="pb-2" *ngIf="!isImage()" style="font-size: 12px; color: #cc0a0a">
+                *Not Allowed image type
+              </div>
+
             </div>
           </div>
         </div>
 
         <div class="form-group mb-0">
           <label for="eventdesc">Event Description</label>
-          <textarea class="form-control" id="eventdesc" rows="4"></textarea>
+          <textarea formControlName="eventDescription" class="form-control" id="eventdesc" rows="4"></textarea>
+
+          <div class="pb-2" *ngIf="this.vendorForm.controls['eventDescription'].errors &&
+          (this.vendorForm.controls['eventDescription'].errors?.['minlength'] &&
+          vendorForm.controls['eventDescription'].touched)" style="font-size: 12px; color: #cc0a0a">
+            *Description must be at least 150 characters
+          </div>
+
+          <div class="pb-2" *ngIf="this.vendorForm.controls['eventDescription'].errors &&
+          (this.vendorForm.controls['eventDescription'].errors?.['maxlength'] &&
+          vendorForm.controls['eventDescription'].touched)" style="font-size: 12px; color: #cc0a0a">
+            *Description could have only 250 characters
+          </div>
+
+          <div class="pb-2" *ngIf="this.vendorForm.controls['eventDescription'].errors &&
+          (this.vendorForm.controls['eventDescription'].errors?.['required'] &&
+          vendorForm.controls['eventDescription'].touched)" style="font-size: 12px; color: #cc0a0a">
+            *Enter description
+          </div>
+
         </div>
 
-        <button type="submit" class="btn btn-purple btn-block mt-4" >Start Selling</button>
+        <button (click)="createSession()" type="submit" class="btn btn-purple btn-block mt-4" >Create Session</button>
       </form>
     </div>
   </div>

@@ -1,0 +1,8 @@
+.card {
+  height: 100%; /* Ensures all cards have the same height */
+}
+
+.card-img-top {
+  height: 250px; /* Set a uniform height for images */
+  object-fit: cover; /* Ensures the image covers the space proportionally */
+}

@@ -13,20 +13,44 @@
       <div class="col-md-4">
           <!-- Form Container with Background and Shadow -->
           <div class="custom-form-container">
-              <form>
+              <form [formGroup]="loginForm">
                   <div class="text-center py-2 pb-5">
                     <label class="fs-1" style="font-weight: 600;">Login</label>
                   </div>
                   <!-- Email input -->
                   <div class="form-outline mb-4 custom-input-focus">
-                      <input type="email" id="form2Example1" class="form-control" />
+                      <input formControlName="email" type="email" id="email" class="form-control" />
                       <label class="form-label" for="form2Example1">Email address</label>
+
+                    <div *ngIf="this.loginForm.controls['email'].errors &&
+                     this.loginForm.controls['email'].errors['required'] &&
+                     loginForm.controls['email'].touched" style="font-size: 12px; color: #cc0a0a">
+                      *Email required
+                    </div>
+
+                    <div *ngIf="this.loginForm.controls['email'].errors &&
+                      this.loginForm.controls['email'].errors['email'] &&
+                      loginForm.controls['email'].touched" style="font-size: 12px; color: #cc0a0a">
+                      *Email must be right format
+                    </div>
                   </div>
 
                   <!-- Password input -->
                   <div class="form-outline mb-4 custom-input-focus">
-                      <input type="password" id="form2Example2" class="form-control" />
+                      <input formControlName="password" type="password" id="form2Example2" class="form-control" />
                       <label class="form-label" for="form2Example2">Password</label>
+
+                    <div *ngIf="this.loginForm.controls['password'].errors &&
+                      this.loginForm.controls['password'].errors['minlength'] &&
+                      loginForm.controls['password'].touched" style="font-size: 12px; color: #cc0a0a">
+                      password must be at least 8 character long
+                    </div>
+
+                    <div *ngIf="this.loginForm.controls['password'].errors &&
+                      this.loginForm.controls['password'].errors['required'] &&
+                      loginForm.controls['password'].touched" style="font-size: 12px; color: #cc0a0a">
+                      Password required
+                    </div>
                   </div>
 
                   <!-- Checkbox -->
@@ -37,7 +61,7 @@
 
                   <!-- Submit button -->
                   <div class="text-center">
-                      <button style="background-color: #6610f2; color: white;" type="button" class="btn btn-block mb-4 px-5">Log in</button>
+                      <button (click)="login()" style="background-color: #6610f2; color: white;" type="button" class="btn btn-block mb-4 px-5">Log in</button>
                   </div>
 
                   <!-- Register link -->
@@ -49,5 +73,26 @@
       </div>
 
       <div class="col-md-4"></div>
+  </div>
+</div>
+
+
+
+<div class="card " style="height: 200px" *ngIf="stock.name">
+  <div class="img">
+    <img class="icon" [src]="stock.icon" />
+  </div>
+  <div class="textBox">
+    <div class="textContent">
+      <div class="h1">{{stock.name}}<div *ngIf="stock.increased"
+                                         style="color: green ; margin: 0 10px 0 10px; float: right;">▲</div>
+        <div *ngIf="!stock.increased" style="color: red ; margin: 0 10px 0 10px; float: right;">▼</div>
+      </div>
+      <span class="span">now</span>
+    </div>
+    <div class="detail">Is trading at the price of ${{stock.price}}
+      <div>
+      </div>
+    </div>
   </div>
 </div>

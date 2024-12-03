@@ -26,16 +26,16 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-black" routerLink="/customer/about-us"><i class="bi bi-person"></i> About Us</a>
+          <a class="nav-link text-black" routerLink="/vendor/about-us"><i class="bi bi-person"></i> About Us</a>
         </li>
       </ul>
 
       <div class="mx-3" style="">
-        <div style="font-weight: 500; color: #6610f2">Thareen</div>
+        <div style="font-weight: 500; color: #6610f2">{{firstName() ? firstName() : 'Vendor'}}</div>
       </div>
 
       <div class="mt-3 mt-lg-0 mx-1">
-        <a href="" class="btn logout-btn"  title="Buy Geeks">
+        <a (click)="logOutBtn()" class="btn logout-btn"  title="Buy Geeks">
           Log out
         </a>
       </div>

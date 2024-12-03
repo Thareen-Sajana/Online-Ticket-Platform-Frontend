@@ -1,165 +1,166 @@
-<div class="container d-flex justify-content-center align-items-center vh-100 mt-4">
+<div class="container d-flex justify-content-center align-items-center vh-100 mt-4" xmlns="http://www.w3.org/1999/html">
+
   <div class="custom-form-container">
+
     <h4 class="text-center mb-4 fs-3 mb-4 pt-5 pb-3">Welcome to Event<span style="color: #6610f2">Keeper</span></h4>
-    <form class="needs-validation" novalidate="">
+
+    <form class="needs-validation" novalidate="" [formGroup]="registerForm">
       <div class="row g-3">
         <div class="col-sm-6">
           <label for="firstName" class="form-label">First name</label>
-          <input type="text" class="form-control custom-input-focus" id="firstName" required="">
-          <div class="invalid-feedback">Valid first name is required.</div>
+          <input formControlName="firstname" type="text" class="form-control custom-input-focus" id="firstName" required="">
+
+          <div *ngIf="this.registerForm.controls['firstname'].errors &&
+          this.registerForm.controls['firstname'].errors['minlength'] &&
+          registerForm.controls['firstname'].touched" style="font-size: 12px; color: #cc0a0a">
+            First Name must be at least 3 characters
+          </div>
+
+          <div *ngIf="this.registerForm.controls['firstname'].errors &&
+          this.registerForm.controls['firstname'].errors['required'] &&
+          registerForm.controls['firstname'].touched" style="font-size: 12px; color: #cc0a0a">
+            Enter First Name
+          </div>
+
+          <div *ngIf="this.registerForm.controls['firstname'].errors &&
+          this.registerForm.controls['firstname'].errors['maxlength'] &&
+          registerForm.controls['firstname'].touched" style="font-size: 12px; color: #cc0a0a">
+            First Name can be only 15 characters long
+          </div>
+
         </div>
 
         <div class="col-sm-6">
           <label for="lastName" class="form-label">Last name</label>
-          <input type="text" class="form-control custom-input-focus" id="lastName" required="">
-          <div class="invalid-feedback">Valid last name is required.</div>
+          <input formControlName="lastname" type="text" class="form-control custom-input-focus" id="lastName" required="">
+
+          <div *ngIf="this.registerForm.controls['lastname'].errors &&
+          this.registerForm.controls['lastname'].errors['minlength'] &&
+          registerForm.controls['lastname'].touched" style="font-size: 12px; color: #cc0a0a">
+            Last Name must be at least 3 characters
+          </div>
+
+          <div *ngIf="this.registerForm.controls['lastname'].errors &&
+          this.registerForm.controls['lastname'].errors['required'] &&
+          registerForm.controls['lastname'].touched" style="font-size: 12px; color: #cc0a0a">
+            Last First Name
+          </div>
+
+          <div *ngIf="this.registerForm.controls['lastname'].errors &&
+          this.registerForm.controls['lastname'].errors['maxlength'] &&
+          registerForm.controls['lastname'].touched" style="font-size: 12px; color: #cc0a0a">
+            First Name can be only 15 characters long
+          </div>
         </div>
 
         <div class="col-12">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control custom-input-focus" id="email" placeholder="you@example.com" required="">
-          <div class="invalid-feedback">Please enter a valid email address.</div>
+          <input formControlName="email" type="email" class="form-control custom-input-focus" id="email" placeholder="you@example.com" required="">
+
+          <div *ngIf="this.registerForm.controls['email'].errors &&
+          this.registerForm.controls['email'].errors['required'] &&
+          registerForm.controls['email'].touched" style="font-size: 12px; color: #cc0a0a">
+            Email required
+          </div>
+
+          <div *ngIf="this.registerForm.controls['email'].errors &&
+          this.registerForm.controls['email'].errors['email'] &&
+          registerForm.controls['email'].touched" style="font-size: 12px; color: #cc0a0a">
+            Email must be right format
+          </div>
+
         </div>
 
         <div class="col-12">
           <label for="address" class="form-label">Address</label>
-          <input type="text" class="form-control custom-input-focus" id="address" placeholder="1234 Main St" required="">
-          <div class="invalid-feedback">Please enter your address.</div>
+          <input formControlName="address" type="text" class="form-control custom-input-focus" id="address" placeholder="1234 Main St" required="">
+
+          <div *ngIf="this.registerForm.controls['address'].errors &&
+          this.registerForm.controls['address'].errors['required'] &&
+          registerForm.controls['address'].touched" style="font-size: 12px; color: #cc0a0a">
+            Address required
+          </div>
         </div>
 
         <div class="col-md-4">
           <label for="country" class="form-label">Country</label>
-          <select class="form-select custom-input-focus" id="country" required="">
+          <select formControlName="country" class="form-select custom-input-focus" id="country" required="">
             <option value="">Choose...</option>
             <option>Sri Lanka</option>
           </select>
-          <div class="invalid-feedback">Please select a valid country.</div>
+
+          <div *ngIf="this.registerForm.controls['country'].errors &&
+          this.registerForm.controls['country'].errors['required'] &&
+          registerForm.controls['country'].touched" style="font-size: 12px; color: #cc0a0a">
+            Select a country
+          </div>
         </div>
 
         <div class="col-md-4">
           <label for="role" class="form-label">Role</label>
-          <select class="form-select custom-input-focus" id="role" required="">
+          <select formControlName="role" class="form-select custom-input-focus" id="role" required="">
             <option value="">Choose...</option>
             <option>Customer</option>
             <option>Vendor</option>
           </select>
-          <div class="invalid-feedback">Please select a role.</div>
+
+          <div *ngIf="this.registerForm.controls['role'].errors &&
+          this.registerForm.controls['role'].errors['required'] &&
+          registerForm.controls['role'].touched" style="font-size: 12px; color: #cc0a0a">
+            Select a role
+          </div>
         </div>
 
         <div class="col-md-4">
           <label for="number" class="form-label">Contact Number</label>
-          <input type="text" class="form-control custom-input-focus" id="number" required="">
-          <div class="invalid-feedback">Contact number required.</div>
+          <input formControlName="contactNumber" type="text" class="form-control custom-input-focus" id="number" required="">
+
+          <div *ngIf="this.registerForm.controls['contactNumber'].errors &&
+          this.registerForm.controls['contactNumber'].errors['required'] &&
+          registerForm.controls['contactNumber'].touched" style="font-size: 12px; color: #cc0a0a">
+            Contact Number required
+          </div>
         </div>
       </div>
 
       <div class="col-12 mt-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control custom-input-focus" id="password"  required="">
-        <div class="invalid-feedback">Please enter your address.</div>
+        <input formControlName="password" type="password" class="form-control custom-input-focus" id="password"  required="">
+
+        <div *ngIf="this.registerForm.controls['password'].errors &&
+          this.registerForm.controls['password'].errors['minlength'] &&
+          registerForm.controls['password'].touched" style="font-size: 12px; color: #cc0a0a">
+          password must be at least 8 character long
+        </div>
+
+        <div *ngIf="this.registerForm.controls['password'].errors &&
+          this.registerForm.controls['password'].errors['required'] &&
+          registerForm.controls['password'].touched" style="font-size: 12px; color: #cc0a0a">
+          Password required
+        </div>
       </div>
 
       <div class="col-12">
         <label for="confirm-password" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control custom-input-focus" id="confirm-password" required="">
-        <div class="invalid-feedback">Please enter your address.</div>
+        <input formControlName="confirmPassword" type="password" class="form-control custom-input-focus" id="confirm-password" required="">
+
+        <div *ngIf="this.registerForm.controls['confirmPassword'].errors &&
+          this.registerForm.controls['confirmPassword'].errors['required'] &&
+          registerForm.controls['confirmPassword'].touched" style="font-size: 12px; color: #cc0a0a">
+          Confirm password required
+        </div>
+
+        <div *ngIf="registerForm.controls['confirmPassword'].touched &&
+          registerForm.controls['confirmPassword'].value!=registerForm.controls['password'].value
+          && registerForm.controls['confirmPassword'].value!='' " style="font-size: 12px; color: #cc0a0a">
+          Password mismatch
+        </div>
       </div>
 
       <hr class="my-4">
 
-      <button class="w-100 btn btn-lg mt-3" style="background-color: #6610f2; color: white;" type="submit">Register</button>
+      <button (click)="registerBtn()" class="w-100 btn btn-lg mt-3" style="background-color: #6610f2; color: white;" type="submit">Register</button>
     </form>
   </div>
 </div>
-
-
-<!--<div class="container">-->
-<!--  <main>-->
-
-<!--    <div class="row g-5">-->
-
-<!--      <div class="col-md-7 col-lg-8 pb-5">-->
-
-<!--        <h4 class="mb-3 pb-4">Welcome to Event <span style="color: #6610f2">Keeper</span></h4>-->
-
-<!--        <form class="needs-validation" novalidate="">-->
-<!--          <div class="row g-3">-->
-<!--            <div class="col-sm-6">-->
-<!--              <label for="firstName" class="form-label">First name</label>-->
-<!--              <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">-->
-<!--              <div class="invalid-feedback">-->
-<!--                Valid first name is required.-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="col-sm-6">-->
-<!--              <label for="lastName" class="form-label">Last name</label>-->
-<!--              <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">-->
-<!--              <div class="invalid-feedback">-->
-<!--                Valid last name is required.-->
-<!--              </div>-->
-<!--            </div>-->
-
-
-
-<!--            <div class="col-12">-->
-<!--              <label for="email" class="form-label">Email</label>-->
-<!--              <input type="email" class="form-control" id="email" placeholder="you@example.com">-->
-<!--              <div class="invalid-feedback">-->
-<!--                Please enter a valid email address for shipping updates.-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="col-12">-->
-<!--              <label for="address" class="form-label">Address</label>-->
-<!--              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">-->
-<!--              <div class="invalid-feedback">-->
-<!--                Please enter your shipping address.-->
-<!--              </div>-->
-<!--            </div>-->
-
-
-<!--            <div class="col-md-5">-->
-<!--              <label for="country" class="form-label">Country</label>-->
-<!--              <select class="form-select" id="country" required="">-->
-<!--                <option value="">Choose...</option>-->
-<!--                <option>Sri Lanka</option>-->
-<!--              </select>-->
-<!--              <div class="invalid-feedback">-->
-<!--                Please select a valid country.-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="col-md-4">-->
-<!--              <label for="state" class="form-label">Gender</label>-->
-<!--              <select class="form-select" id="state" required="">-->
-<!--                <option value="">Choose...</option>-->
-<!--                <option>Male</option>-->
-<!--                <option>Female</option>-->
-<!--              </select>-->
-<!--              <div class="invalid-feedback">-->
-<!--                Please provide a valid state.-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="col-md-3">-->
-<!--              <label for="number" class="form-label">Contact Number</label>-->
-<!--              <input type="text" class="form-control" id="number" placeholder="" required="">-->
-<!--              <div class="invalid-feedback">-->
-<!--                Zip code required.-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <hr class="my-4">-->
-
-<!--          <button class="w-100 btn btn-lg" style="background-color: #6610f2; color: white;" type="submit">Register</button>-->
-
-<!--        </form>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </main>-->
-
-<!--</div>-->
-
 

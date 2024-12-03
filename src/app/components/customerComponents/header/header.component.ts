@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { DropdownModule } from 'primeng/dropdown';
+import { Router} from '@angular/router';
+import {TokenService} from '../../../service/token_service/token.service';
+import {Notify} from 'notiflix/build/notiflix-notify-aio';
 
 @Component({
   selector: 'app-header',
@@ -11,20 +14,27 @@ import { DropdownModule } from 'primeng/dropdown';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  cities: City[] = [
-    { name: 'New York', code: 'NY' },
-    { name: 'Los Angeles', code: 'LA' },
-    { name: 'Chicago', code: 'CHI' },
-    { name: 'Houston', code: 'HOU' }
-  ];
+  //firstName: string | null = null;
+  firstName = signal<string | null>(null);
+  constructor(private tokenService: TokenService, private router: Router) {
+  }
 
-  selectedCity: City | null = null;
+  ngOnInit(): void {
+    const token:string | null = localStorage.getItem('token')
+    if(token){
+      this.firstName.set(this.tokenService.getFirstNameFromToken(token))
+      console.log("this is role : "+ this.tokenService.getRoleFromToken(token))
+    }
+  }
+
+  logOutBtn() {
+    localStorage.removeItem("token");
+    this.router.navigate(['/login']);
+    Notify.success("Successfully logged out");
+  }
 
 }
 
-interface City {
-  name: string;
-  code: string;
-}
+

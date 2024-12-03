@@ -14,7 +14,7 @@ import {ManageSessionComponent} from './pages/vendorPage/manage-session/manage-s
 export const routes: Routes = [
     {"path": "login", component: LoginPageComponent},
     {"path": "register", component: RegisterPageComponent},
-    {"path": 'ticket-details', component: BuyTicketDitailsPageComponent},
+    //{"path": 'ticket-details', component: BuyTicketDitailsPageComponent},
 
     {"path": 'customer', component: CustomerPageComponent,
       children: [
@@ -23,6 +23,7 @@ export const routes: Routes = [
         {"path": 'buy-now', component: BuyNowPageComponent},
         {"path": 'about-us', component: AboutUsPageComponent},
         {"path": 'ticket-history-page', component: TicketHistoryPageComponent},
+        {"path": 'ticket-details/:id', component: BuyTicketDitailsPageComponent},
         {"path": '', redirectTo: 'home', pathMatch: 'full'}
       ]},
 
@@ -30,6 +31,7 @@ export const routes: Routes = [
       children: [
         {"path": 'create-session', component: CreateSessionComponent},
         {"path": 'manage-session', component: ManageSessionComponent},
+        {"path": 'about-us', component: AboutUsPageComponent},
         {"path": '', redirectTo: 'create-session', pathMatch: 'full'}
       ]},
 ];

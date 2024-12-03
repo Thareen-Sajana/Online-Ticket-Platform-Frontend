@@ -7,162 +7,163 @@
         <p class="lead text-body-secondary">Welcome to our ticket booking platform. Easily browse and book tickets for the latest events and shows. With just a few clicks, secure your spot and enjoy seamless access to your favorite events.</p>
         <p>
           <a href="#" class="btn  my-2 mx-2" style="background-color: #6610f2; color: white">Book Now</a>
-          <a href="#" class="btn btn-secondary my-2">Learn More</a>
+          <a routerLink="/customer/about-us" class="btn btn-secondary my-2">Learn More</a>
         </p>
       </div>
     </div>
   </section>
 
+  <div *ngIf="!isReceiveData()">Loading...</div>
 
-  <div class="album py-5 bg-body-tertiary">
+  <div *ngIf="isReceiveData()" class="album py-5 bg-body-tertiary">
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
+        <div class="col" *ngFor="let ticket of ticketData()">
+          <div class="card shadow-sm" >
+            <img [src]="getImageSource(ticket)" class="card-img-top" alt="Thumbnail" >
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text" style="font-weight: 500; font-size: 20px" >{{getTicketName(ticket)}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button (click)="loadTicketDetailsPage(ticket)" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
                 </div>
-                <small class="text-body-secondary">9 mins</small>
+                <small class="text-body-secondary">On, {{getEventData(ticket)}}</small>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/about-us-img.jpg" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/aboutUsImg.avif" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <img src="../../../../assets/ticket-img.jpg" class="card-img-top" alt="Thumbnail">-->
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+<!--                </div>-->
+<!--                <small class="text-body-secondary">9 mins</small>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
       </div>
     </div>
