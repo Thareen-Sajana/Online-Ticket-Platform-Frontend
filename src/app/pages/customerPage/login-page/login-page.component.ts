@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import {RouterLink} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgIf} from '@angular/common';
-import {Router} from '@angular/router';
+// import {Router} from '@angular/router';
 import {ApiService} from '../../../service/api_service/api.service';
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {Loading} from 'notiflix/build/notiflix-loading-aio';
-import {firstValueFrom} from 'rxjs';
+import {firstValueFrom, Subscription} from 'rxjs';
 import {TokenService} from '../../../service/token_service/token.service';
+import {WebSocketService} from '../../../service/webSocket_service/webSocket.service';
+// import {WebSocketService} from '../../../service/webSocket_service/webSocket.service';
+import SockJS from 'sockjs-client';
+import * as Stomp from 'stompjs';
 
 @Component({
   selector: 'app-login-page',
@@ -16,19 +20,33 @@ import {TokenService} from '../../../service/token_service/token.service';
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
 
-  title = 'WebSocketClient';
-  stock: any = {};
-
-  private webSocket: WebSocket;
+  //totalTickets: number = 0;
+  // socketClient:any = null;
+  // private notificationSubscription:any;
 
   constructor(private router: Router, private apiService: ApiService, private tokenService: TokenService) {
-    console.log("heooll ")
-    this.webSocket = new WebSocket('ws://localhost:8080/stocks');
-    this.webSocket.onmessage = (event) => {
-      this.stock = JSON.parse(event.data)
-    };
+  }
+
+  ngOnInit(): void {
+    // Update total tickets in real-time
+    // setInterval(() => {
+    //   this.totalTickets = this.webSocketService.ticketUpdates;
+    // }, 100);
+    // let ws = new SockJS('http://localhost:8080/ws');
+    // this.socketClient = Stomp.over(ws);
+    // const connectHeaders = {};
+    // const sessinId = "sessionIsd444"
+    // this.socketClient.connect(connectHeaders, () => {
+    //   console.log('Connected! to WS...');
+    //   this.notificationSubscription = this.socketClient.subscribe(
+    //     `/user/${sessinId}/notification`,
+    //     (message:any) => {
+    //       console.log("this is message form bakend : " + message)
+    //     }
+    //   )
+    // });
   }
 
   loginForm = new FormGroup({
@@ -77,5 +95,7 @@ export class LoginPageComponent {
     }
 
   }
+
+
 }
 
