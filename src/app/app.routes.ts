@@ -10,6 +10,8 @@ import {CustomerPageComponent} from './pages/customerPage/customer-page/customer
 import {VendorPageComponent} from './pages/vendorPage/vendor-page/vendor-page.component';
 import {CreateSessionComponent} from './pages/vendorPage/create-session/create-session.component';
 import {ManageSessionComponent} from './pages/vendorPage/manage-session/manage-session.component';
+import {ReportPageComponent} from './pages/vendorPage/report-page/report-page.component';
+import {ReportViewComponent} from './pages/vendorPage/report-view/report-view.component';
 
 export const routes: Routes = [
     {"path": "login", component: LoginPageComponent},
@@ -32,6 +34,8 @@ export const routes: Routes = [
         {"path": 'create-session', component: CreateSessionComponent},
         {"path": 'manage-session', component: ManageSessionComponent},
         {"path": 'about-us', component: AboutUsPageComponent},
+        {"path": 'reports', component: ReportPageComponent},
+        {"path": 'view-report/:id', component: ReportViewComponent},
         {"path": '', redirectTo: 'create-session', pathMatch: 'full'}
       ]},
 ];

@@ -53,6 +53,10 @@ export class TicketHistoryPageComponent implements OnInit {
     }
   }
 
+  getLength(){
+    return this.data().length;
+  }
+
   getImageSource(data:any): string {
     return `data:${data.imageType};base64,${data.image}`;
   }

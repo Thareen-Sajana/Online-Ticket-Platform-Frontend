@@ -35,7 +35,7 @@
 
 			<div class="mx-3" style="">
 				<div style="font-weight: 500;">{{firstName() ? firstName() : 'User'}}</div>
-				<div style="font-size: 12px; color: #6610f2; font-weight: 500;">VIP customer</div>
+				<div style="font-size: 12px; color: #6610f2; font-weight: 500;">{{isLoading() ? 'Loading...' : customerType()}}</div>
 			</div>
             <div class="mt-3 mt-lg-0 mx-1">
 				<a (click)="logOutBtn()"  class="btn logout-btn"  title="Buy Geeks">
