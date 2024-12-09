@@ -71,7 +71,7 @@ export class BuyTicketDitailsPageComponent implements OnInit {
       this.email.set(email);
     }
 
-    console.log("This is buyer emaol : "+ this.email())
+    console.log("This is buyer email : "+ this.email())
 
     this.getTicketDetails(this.id())
   }

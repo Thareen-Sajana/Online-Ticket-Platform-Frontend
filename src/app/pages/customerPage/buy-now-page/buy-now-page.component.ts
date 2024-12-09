@@ -23,6 +23,13 @@ export class BuyNowPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTicketData();
+
+    const customerType = <string>localStorage.getItem('customer-type')
+    if(customerType && customerType=='Regular Customer'){
+      // @ts-ignore
+      const filteredList = this.ticketData().filter(ticket => ticket.ticketType === "regular")
+      this.ticketData.set(filteredList)
+    }
   }
 
   async getTicketData(){
